@@ -1,5 +1,5 @@
 {
-  "name": "karolwasemann.github.io",
+  "name": "karolwasemann.github.io/src/index.html",
   "version": "1.0.0",
   "description": "Simple portfolio website",
   "main": "src/index.html",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/karolwasemann/karolwasemann.github.io"
+    "url": "https://github.com/karolwasemann/karolwasemann.github.io/src"
   },
   "keywords": [],
   "author": "",
