@@ -1,6 +1,83 @@
 @mixin form {
-    top: 0;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  position: absolute;
+  padding: 2rem;
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  z-index: 6;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 12rem;
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  transition: clip-path 0.3s;
+  align-content: start;
+  font-size: 1.2rem;
+}
+
+@mixin btn {
+  border: none;
+  background: none;
+  color: #3997f7;
+  font-size: $font-l;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin-top: 2rem;
+    font-size: 3rem;
+  }
+}
+
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  overflow: hidden;
+  position: relative;
+
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 2fr min-content;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+
+    position: fixed;
+    top: 0px;
     left: 0;
+    right: 0;
+    z-index: 4;
+
+    @media screen and (min-width: 768px) {
+      padding: $font-s $font-l;
+    }
+
+    @media screen and (min-width: 1024px) {
+      padding: $font-s $font-xl;
+    }
+
+    .request {
+      a {
+        color: #3997f7;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #80bfff;
+        }
+      }
+    }
+  }
+
+  .sec-request {
     box-sizing: border-box;
     position: absolute;
     padding: 2rem;
@@ -10,585 +87,429 @@
     z-index: 6;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding-top: 12rem;
     clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-    transition: clip-path .3s;
-    align-content: start;
-    font-size: 1.2rem;
-}
 
-@mixin btn {
-    border: none;
-    background: none;
-    color: #3997f7;
-    font-size: $font-l;
-    width: 100%;
+    transition: clip-path 0.3s;
 
-    @media screen and (min-width:768px) {
-        margin-top: 2rem;
+    button#cancel {
+      position: fixed;
+      right: 1rem;
+      border: none;
+      background: none;
+      color: white;
+      flex-basis: 100%;
+      text-align: right;
+      align-self: start;
+      font-size: $font-m;
+      z-index: 100;
+    }
+
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.8rem;
+
+      img {
+        max-height: 30vh;
+      }
+
+      h3 {
         font-size: 2rem;
-    }
-
-    @media screen and (min-width:1024px) {
-        margin-top: 2rem;
-        font-size: 3rem;
-    }
-}
-
-
-header {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    color: white;
-    overflow: hidden;
-    position: relative;
-
-
-
-    nav {
-        display: grid;
-        grid-template-columns: 1fr 2fr min-content;
-        padding: $font-s;
-        background: rgba(0, 0, 0, .8);
-
-
-        position: fixed;
-        top: 0px;
-        left: 0;
-        right: 0;
-        z-index: 4;
-
-        @media screen and (min-width: 768px) {
-            padding: $font-s $font-l;
-        }
 
         @media screen and (min-width: 1024px) {
-            padding: $font-s $font-xl;
+          font-size: 3rem;
         }
+      }
 
-        .request {
-            a {
-                color: #3997f7;
-                transition: color .3s;
-
-                &:hover {
-                    color: #80bfff;
-
-                }
-            }
+      p {
+        @media screen and (min-width: 1024px) {
+          font-size: 1.6rem;
         }
+      }
+
+      button {
+        @include btn;
+      }
     }
 
+    &-service {
+      @include form;
 
+      h3 {
+        margin: 1rem 0;
 
-    .sec-request {
-        box-sizing: border-box;
-        position: absolute;
-        padding: 2rem;
-        height: 100vh;
-        width: 100vw;
-        background: black;
-        z-index: 6;
+        @media screen and (min-width: 1024px) {
+          font-size: 3rem;
+        }
+      }
+
+      form {
         display: flex;
         flex-wrap: wrap;
-        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+        gap: 1rem;
+        margin: 2rem 0;
+        width: 100%;
 
-        transition: clip-path .3s;
+        label {
+          border: 2px solid hsla(0, 0%, 53.3%, 0.2);
+          width: 100%;
+          background: #1d1d1f;
+          border-radius: 0.4rem;
+          padding: 0.4rem 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
 
+          input {
+            background-color: #1d1d1f;
+          }
 
+          @media screen and (min-width: 768px) {
+            width: 70%;
+            margin: 0 auto;
+          }
 
-        button#cancel {
-            position: fixed;
-            right: 1rem;
-            border: none;
-            background: none;
-            color: white;
-            flex-basis: 100%;
-            text-align: right;
-            align-self: start;
-            font-size: $font-m;
-            z-index: 100;
-
+          @media screen and (min-width: 1024px) {
+            font-size: 1.8rem;
+          }
         }
+      }
 
-        .wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.8rem;
-
-
-            img {
-                max-height: 30vh;
-            }
-
-            h3 {
-                font-size: 2rem;
-
-                @media screen and (min-width:1024px) {
-                    font-size: 3rem;
-                }
-            }
-
-            p {
-                @media screen and (min-width:1024px) {
-                    font-size: 1.6rem;
-                }
-            }
-
-            button {
-
-                @include btn;
-
-
-            }
-        }
-
-
-
-        &-service {
-
-            @include form;
-
-            h3 {
-                margin: 1rem 0;
-
-                @media screen and (min-width:1024px) {
-                    font-size: 3rem;
-                }
-            }
-
-            form {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 1rem;
-                margin: 2rem 0;
-                width: 100%;
-
-                label {
-                    border: 2px solid hsla(0, 0%, 53.3%, .2);
-                    width: 100%;
-                    background: #1d1d1f;
-                    border-radius: .4rem;
-                    padding: .4rem 1rem;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    input {
-                        background-color: #1d1d1f;
-                    }
-
-                    @media screen and (min-width:768px) {
-                        width: 70%;
-                        margin: 0 auto;
-                    }
-
-                    @media screen and (min-width:1024px) {
-                        font-size: 1.8rem;
-                    }
-                }
-
-
-            }
-
-            .next {
-
-                @include btn;
-
-            }
-        }
-
-        &-des {
-
-            @include form;
-            gap: 3rem;
-
-
-            h3 {
-                @media screen and (min-width:1024px) {
-                    font-size: 2.6rem;
-                }
-            }
-
-            form {
-                width: 100%;
-
-
-
-                textarea {
-                    box-sizing: border-box;
-                    width: 100%;
-                    height: 160px;
-                    padding: 1rem;
-                    outline-color: #3997f7;
-                    background-color: #1d1d1f;
-                    color: white;
-                    font-size: .8rem;
-
-                    @media screen and (min-width:768px) {
-                        display: block;
-                        width: 70%;
-                        margin: 0 auto;
-                        font-style: 1.2rem;
-                        height: 240px;
-                    }
-
-                    @media screen and (min-width:1024px) {
-                        font-size: 1.4rem;
-                        height: 300px;
-
-                    }
-                }
-            }
-
-            .next2 {
-
-                @include btn;
-
-            }
-        }
-
-        &-contact {
-
-
-            @include form;
-            gap: 2rem;
-
-            h3 {
-                width: 100%;
-                text-align: center;
-
-                @media screen and (min-width:1024px) {
-                    font-size: 2.6rem;
-                }
-
-            }
-
-            form {
-                width: 100%;
-
-                input {
-                    width: 100%;
-                    margin: .5rem 0 1.6rem;
-                    box-sizing: border-box;
-                    padding: .4rem;
-                    font-size: 1rem;
-
-
-                }
-
-                @media screen and (min-width:768px) {
-                    display: block;
-                    width: 70%;
-                    margin: 0 auto;
-                }
-            }
-        }
-
-        .submit {
-
-            @include btn;
-            width: 100%;
-
-        }
+      .next {
+        @include btn;
+      }
     }
 
-    .open {
-        clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+    &-des {
+      @include form;
+      gap: 3rem;
 
+      h3 {
+        @media screen and (min-width: 1024px) {
+          font-size: 2.6rem;
+        }
+      }
+
+      form {
+        width: 100%;
+
+        textarea {
+          box-sizing: border-box;
+          width: 100%;
+          height: 160px;
+          padding: 1rem;
+          outline-color: #3997f7;
+          background-color: #1d1d1f;
+          color: white;
+          font-size: 0.8rem;
+
+          @media screen and (min-width: 768px) {
+            display: block;
+            width: 70%;
+            margin: 0 auto;
+            font-style: 1.2rem;
+            height: 240px;
+          }
+
+          @media screen and (min-width: 1024px) {
+            font-size: 1.4rem;
+            height: 300px;
+          }
+        }
+      }
+
+      .next2 {
+        @include btn;
+      }
     }
 
-    h2 {
-        font-size: $font-s;
+    &-contact {
+      @include form;
+      gap: 2rem;
 
-        @media screen and (min-width: 768px) {
-            font-size: $font-m;
-        }
+      h3 {
+        width: 100%;
+        text-align: center;
 
         @media screen and (min-width: 1024px) {
-            font-size: $font-xl;
+          font-size: 2.6rem;
+        }
+      }
+
+      form {
+        width: 100%;
+
+        input {
+          width: 100%;
+          margin: 0.5rem 0 1.6rem;
+          box-sizing: border-box;
+          padding: 0.4rem;
+          font-size: 1rem;
+        }
+
+        @media screen and (min-width: 768px) {
+          display: block;
+          width: 70%;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .submit {
+      @include btn;
+      width: 100%;
+    }
+  }
+
+  .open {
+    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+  }
+
+  h2 {
+    font-size: $font-s;
+
+    @media screen and (min-width: 768px) {
+      font-size: $font-m;
+    }
+
+    @media screen and (min-width: 1024px) {
+      font-size: $font-xl;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+  .nav-container {
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.85);
+    // display: none;
+    top: 0;
+    right: 0;
+    margin-top: 53px;
+    clip-path: circle(0.3% at 100% 0);
+    transition: clip-path 0.5s;
+
+    ul {
+      display: flex;
+      // flex-direction: column;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
+      li {
+        list-style: none;
+        flex-basis: 100%;
+        text-align: center;
+        margin: $font-xl 0;
+
+        &.icon {
+          flex-basis: 40%;
         }
 
         a {
-            text-decoration: none;
-            color: white;
+          color: white;
+          text-decoration: none;
+          font-size: $font-xxl;
+          text-transform: uppercase;
+          font-weight: bold;
         }
+      }
+    }
+  }
+
+  .toggler {
+    // display: block;
+    clip-path: circle(141.2% at 100% 0);
+  }
+
+  .burger {
+    border: none;
+
+    height: 1rem;
+    width: 1.2rem;
+    display: inline-block;
+    background: none;
+    color: white;
+    align-self: center;
+
+    .span1 {
+      background: white;
+      display: block;
+      height: 0.2rem;
+      width: 1.2rem;
+      transition: transform 0.5s;
+      transform-origin: left;
+
+      @media screen and (min-width: 1024px) {
+        width: 1.6rem;
+        height: 0.3rem;
+      }
     }
 
+    .span2 {
+      margin-top: 0.4rem;
 
+      background: white;
+      display: block;
+      height: 0.2rem;
+      width: 1.2rem;
+      transform-origin: left;
+      transition: transform 0.5s;
 
-    .nav-container {
-        height: 100vh;
-        position: absolute;
-        width: 100vw;
-        background: rgba(0, 0, 0, .85);
-        // display: none;
-        top: 0;
-        right: 0;
-        margin-top: 53px;
-        clip-path: circle(0.3% at 100% 0);
-        transition: clip-path .5s;
-
-
-
-        ul {
-            display: flex;
-            // flex-direction: column;
-            margin-top: 4rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-
-
-
-            li {
-                list-style: none;
-                flex-basis: 100%;
-                text-align: center;
-                margin: $font-xl 0;
-
-                &.icon {
-                    flex-basis: 40%;
-                }
-
-                a {
-                    color: white;
-                    text-decoration: none;
-                    font-size: $font-xxl;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                }
-            }
-        }
+      @media screen and (min-width: 1024px) {
+        width: 1.6rem;
+        height: 0.3rem;
+      }
     }
 
-    .toggler {
-        // display: block;
-        clip-path: circle(141.2% at 100% 0);
-
+    .move1 {
+      transform: rotate(35deg);
     }
 
-    .burger {
-        border: none;
+    .move2 {
+      transform: rotate(-35deg);
+    }
+  }
 
+  figure {
+    width: 80%;
+    align-self: flex-end;
+    margin-top: 2rem;
+    height: 40vh;
 
+    img {
+      width: 70vw;
+      max-height: 40vh;
+      margin: 4rem 0 0 2rem;
+      background-color: none;
+      clip-path: circle(50% at 50% 50%);
 
-        height: 1rem;
-        width: 1.2rem;
+      @media screen and (min-width: 768px) {
+        width: 90vw;
+        max-height: 45vh;
+      }
+    }
+  }
+
+  .saturn-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;
+    width: 130px;
+    left: 14%;
+    padding: $font-xxs;
+    border-radius: $font-s;
+    background-color: transparent;
+    color: black;
+    clip-path: circle(18.7% at 16% 10%);
+    animation: myOrbit 10s infinite linear;
+    z-index: 2;
+    transition: all 1s;
+
+    @media screen and (min-width: 768px) {
+      width: 250px;
+    }
+
+    &:hover {
+      animation-play-state: paused;
+      background-color: rgba(230, 230, 230, 0.7);
+      clip-path: circle(70.7% at 50% 50%);
+    }
+
+    .saturn {
+      margin-bottom: $font-xs;
+    }
+
+    .message {
+      font-size: $font-m;
+    }
+  }
+
+  .title {
+    margin: 5rem 2rem;
+    flex-grow: 1;
+    justify-self: flex-end;
+
+    h1 {
+      @media screen and (min-width: 768px) {
+        font-size: 3rem;
+      }
+    }
+
+    h3 {
+      margin-top: $font-s;
+    }
+  }
+
+  .star {
+    width: 30px;
+    transform: translate(-20vw, 10vh);
+    animation: star-move 5s random(2) + s;
+
+    @media screen and (min-width: 768px) {
+      animation: star-move-tablet 7s random(2) + s;
+    }
+  }
+
+  .slider {
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+
+    li {
+      list-style: none;
+
+      a {
         display: inline-block;
-        background: none;
-        color: white;
-        align-self: center;
-
-
-        .span1 {
-            background: white;
-            display: block;
-            height: .2rem;
-            width: 1.2rem;
-            transition: transform .5s;
-            transform-origin: left;
-
-            @media screen and (min-width: 1024px) {
-                width: 1.6rem;
-                height: .3rem;
-            }
-        }
-
-        .span2 {
-            margin-top: .4rem;
-
-            background: white;
-            display: block;
-            height: .2rem;
-            width: 1.2rem;
-            transform-origin: left;
-            transition: transform .5s;
-
-            @media screen and (min-width: 1024px) {
-                width: 1.6rem;
-                height: .3rem;
-            }
-        }
-
-
-        .move1 {
-
-            transform: rotate(35deg);
-        }
-
-
-        .move2 {
-            transform: rotate(-35deg);
-        }
-    }
-
-
-
-
-
-    figure {
-        width: 80%;
-        align-self: flex-end;
-        margin-top: 2rem;
-        height: 40vh;
-
-
-        img {
-            width: 70vw;
-            max-height: 40vh;
-            margin: 4rem 0 0 2rem;
-            background-color: none;
-            clip-path: circle(50% at 50% 50%);
-
-            @media screen and (min-width: 768px) {
-                width: 90vw;
-                max-height: 45vh;
-            }
-
-
-
-        }
-    }
-
-    .saturn-container {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 30%;
-        width: 130px;
-        left: 14%;
-        padding: $font-xxs;
-        border-radius: $font-s;
-        background-color: transparent;
-        color: black;
-        clip-path: circle(18.7% at 16% 10%);
-        animation: myOrbit 10s infinite linear;
-        z-index: 2;
-        transition: all 1s;
-
-        @media screen and (min-width: 768px) {
-            width: 250px;
-        }
+        height: 1.5rem;
+        width: 0.5rem;
+        border-left: 4px solid white;
+        margin: 0 1rem 0;
+        transform-origin: bottom center;
+        transition: transform 0.4s;
 
         &:hover {
-            animation-play-state: paused;
-            background-color: rgba(230, 230, 230, .7);
-            clip-path: circle(70.7% at 50% 50%);
-
+          transform: scaleY(1.8);
         }
-
-
-
-        .saturn {
-            margin-bottom: $font-xs;
-
-        }
-
-        .message {
-            font-size: $font-m;
-        }
+      }
     }
-
-    .title {
-        margin: 5rem 2rem;
-        flex-grow: 1;
-        justify-self: flex-end;
-
-        h1 {
-            @media screen and (min-width: 768px) {
-                font-size: 3rem;
-            }
-        }
-
-        h3 {
-            margin-top: $font-s;
-        }
-
-
-    }
-
-    .star {
-        width: 30px;
-        transform: translate(-20vw, 10vh);
-        animation: star-move 5s random(2)+s;
-
-        @media screen and (min-width: 768px) {
-            animation: star-move-tablet 7s random(2)+s;
-
-        }
-
-    }
-
-    .slider {
-        padding-bottom: 2rem;
-        display: flex;
-        justify-content: center;
-
-        li {
-            list-style: none;
-
-            a {
-                display: inline-block;
-                height: 1.5rem;
-                width: .5rem;
-                border-left: 4px solid white;
-                margin: 0 1rem 0;
-                transform-origin: bottom center;
-                transition: transform .4s;
-
-
-
-                &:hover {
-                    transform: scaleY(1.8)
-                }
-            }
-
-
-        }
-    }
-
+  }
 }
 
-
 @keyframes star-move {
-    from {
-        transform: translate(-20vw, 0) scale(1);
+  from {
+    transform: translate(-20vw, 0) scale(1);
+  }
 
-    }
-
-    to {
-        transform: translate(120vw, 70vh) scale(.2);
-
-    }
-
+  to {
+    transform: translate(120vw, 70vh) scale(0.2);
+  }
 }
 
 @keyframes star-move-tablet {
-    from {
-        transform: translate(-20vw, 0) scale(1);
+  from {
+    transform: translate(-20vw, 0) scale(1);
+  }
 
-    }
-
-    to {
-        transform: translate(120vw, 100vh) scale(.2);
-
-    }
-
+  to {
+    transform: translate(120vw, 100vh) scale(0.2);
+  }
 }
 
-
-
 @keyframes myOrbit {
-    from {
-        transform: rotate(0deg) translateX(150px) rotate(0deg);
-    }
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
 
-    to {
-        transform: rotate(360deg) translateX(150px) rotate(-360deg);
-    }
+  to {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
 }
