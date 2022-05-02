@@ -2,7 +2,7 @@
   "name": "karolwasemann.github.io",
   "version": "1.0.0",
   "description": "Simple portfolio website",
-  "main": "index.html",
+  "main": "src/index.html",
   "scripts": {
     "start": "concurrently npm:sass-watch npm:src-watch",
     "src-watch": "light-server -c light-server.json",
