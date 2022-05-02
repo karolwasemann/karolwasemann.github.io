@@ -1,21 +1,21 @@
 {
-    "serve": "./src",
-    "servePrefix": "",
-    "serveRedirect": false,
-    "port": 8080,
-    "bind": "localhost",
-    "watchexps": [
-      "**.js # npm run build",
-      "src/styles/*.css # # reloadcss",
-      "src/*.html # # reload"
-    ],
-    "interval": 500,
-    "delay": 0,
-    "proxy": "http://www.mein-backend.de:9999",
-    "proxypaths": [ "/api" ],
-    "noReload": false,
-    "quiet": false,
-    "open": true,
-    "http2": false,
-    "historyindex": "/index.html"
-  }
+  "serve": "./src",
+  "servePrefix": "",
+  "serveRedirect": false,
+  "port": 8080,
+  "bind": "localhost",
+  "watchexps": [
+    "**.js # npm run build",
+    "src/styles/*.css # # reloadcss",
+    "src/*.html # # reload"
+  ],
+  "interval": 500,
+  "delay": 0,
+  "proxy": "http://www.mein-backend.de:9999",
+  "proxypaths": ["/api"],
+  "noReload": false,
+  "quiet": false,
+  "open": true,
+  "http2": false,
+  "historyindex": "/index.html"
+}
