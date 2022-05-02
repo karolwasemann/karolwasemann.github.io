@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://karolwasemann.github.io"
+    "url": "karolwasemann/karolwasemann.github.io"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://karolwasemann.github.ios"
+    "url": "https://github.com/karolwasemann/karolwasemann.github.io/issues"
   },
-  "homepage": "https://karolwasemann.github.io",
+  "homepage": "https://github.com/karolwasemann/karolwasemann.github.io",
   "devDependencies": {
     "concurrently": "^6.3.0",
     "gh-pages": "^3.2.3",
