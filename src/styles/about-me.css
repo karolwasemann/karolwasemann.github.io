@@ -1,17 +1,112 @@
-/* Error: Undefined variable.
- *    ,
- * 33 |     font-size: $font-xxl;
- *    |                ^^^^^^^^^
- *    '
- *   src/scss/about-me.scss 33:16  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 33 \2502      font-size: $font-xxl;\a    \2502                 ^^^^^^^^^\a    \2575 \a   src/scss/about-me.scss 33:16  root stylesheet";
+.about-me {
+  padding: 5rem 2.2rem;
+  font-family: "Zen Kurenaido", sans-serif;
 }
+.about-me h2 {
+  font-size: 2.2rem;
+}
+@media screen and (min-width: 1024px) {
+  .about-me h2 {
+    font-size: 3rem;
+  }
+}
+.about-me .who {
+  margin-top: 2.2rem;
+  text-align: center;
+}
+@media screen and (min-width: 1024px) {
+  .about-me .who {
+    display: grid;
+    grid-template-columns: 3fr 5fr;
+    grid-template-rows: max-content max-content;
+    gap: 1.2rem;
+    margin-top: 8rem;
+  }
+}
+.about-me .who h3 {
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1024px) {
+  .about-me .who h3 {
+    font-size: 3rem;
+    grid-row: 1/3;
+  }
+}
+.about-me .who p {
+  font-size: 1.2rem;
+  margin: 1.2rem 0 0 0;
+  text-align: left;
+}
+@media screen and (min-width: 1024px) {
+  .about-me .who p {
+    font-size: 1.5rem;
+  }
+}
+.about-me .who img {
+  margin: 1.8rem 0 60px;
+  width: 100%;
+  box-shadow: 0 0 8px -2px rgba(0, 0, 0, 0.1), 0 6px 20px -3px rgba(0, 0, 0, 0.2);
+}
+@media screen and (min-width: 768px) {
+  .about-me .who img {
+    width: 50%;
+  }
+}
+.about-me .passion {
+  margin-top: 1.2rem;
+}
+@media screen and (min-width: 1024px) {
+  .about-me .passion {
+    margin-top: 2.2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: max-content max-content;
+    gap: 4rem;
+    max-width: 1260px;
+  }
+}
+.about-me .passion h3 {
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  margin: 0 auto;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .about-me .passion h3 {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .about-me .passion h3 {
+    font-size: 2.2rem;
+    grid-column: 1/-1;
+    margin-bottom: 2rem;
+  }
+}
+.about-me .passion section {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+}
+.about-me .passion section img {
+  margin: 1.2rem auto;
+}
+.about-me .passion section h4 {
+  align-self: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+@media screen and (min-width: 768px) {
+  .about-me .passion section h4 {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .about-me .passion section p {
+    font-size: 1.2rem;
+  }
+}
+
+/*# sourceMappingURL=about-me.css.map */

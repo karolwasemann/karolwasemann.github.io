@@ -557,7 +557,7 @@ header .title h3 {
 header .star {
   width: 30px;
   transform: translate(-20vw, 10vh);
-  animation: star-move 5s 2s;
+  animation: star-move 5s 1s;
 }
 @media screen and (min-width: 768px) {
   header .star {
